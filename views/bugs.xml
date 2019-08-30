@@ -12,6 +12,35 @@
                     </tree>
                 </field>
         </record>
+        <record model="ir.ui.view" id="bug-manage.form">
+                <field name="name">bug表单</field>
+                <field name="model">bm.bug</field>
+                <field name="arch" type="xml">
+                    <form>
+                        <header>
+                            <button name="do_close" type="object" string="关闭bug"/>
+                        </header>
+                        <sheet>
+                            <group name="group_top" col="2">
+                                <group name="group_left">
+                                    <field name="name"/>
+                                    <field name="user_id"/>
+                                    <field name="is_closed"/>
+                                </group>
+                                <group name="group_right">
+                                    <field name="close_reason"/>
+                                    <field name="follower_id"/>
+                                </group>
+                            </group>
+                            <notebook>
+                                <page string="详细内容">
+                                    <field name="detail"/>
+                                </page>
+                            </notebook>
+                        </sheet>
+                    </form>
+                </field>
+        </record>
         <!-- actions opening views on models -->
         <record model="ir.actions.act_window" id="bug-manage.action_window">
             <field name="name">bug-manage window</field>
