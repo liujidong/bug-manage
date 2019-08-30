@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 from odoo import http
 
-# class Bug-manage(http.Controller):
-#     @http.route('/bug-manage/bug-manage/', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+class Bug(http.Controller):
+
+     @http.route('/bug-manage')
+     def BugManage(self, **kw):
+         bugs=http.request.env['bm.bug']
+         domain_bug=[('is_closed','=',False)]
+         bugs_open=bugs.search(domain_bug)
+         return http.request.render('bug-manage.bugs_template', {'bugs_open': bugs_open})
 
 #     @http.route('/bug-manage/bug-manage/objects/', auth='public')
 #     def list(self, **kw):
