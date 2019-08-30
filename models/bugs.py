@@ -11,3 +11,9 @@ class bug(models.Model):
     close_reason=fields.Selection([('changed','已修改'),('cannot','无法修改'),('dalay','推迟')],string='关闭理由')
     user_id=fields.Many2one('res.user',string='负责人')
     follower_id=fields.Many2many('res.partner',string='关注者')
+
+    @api.multi
+    def do_close(self):
+        for item in self:
+            item.is_closed=True
+        return True
