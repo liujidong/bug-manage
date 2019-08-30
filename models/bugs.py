@@ -1,6 +1,6 @@
 # -*- utf-8 -*-
 
-from odoo import models,fields,api
+from odoo import models, fields, api
 
 class bug(models.Model):
     _name="bm.bug"
