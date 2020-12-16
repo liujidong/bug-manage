@@ -12,7 +12,7 @@ class bug(models.Model):
     user_id=fields.Many2one('res.users',string='负责人')
     follower_id=fields.Many2many('res.partner',string='关注者')
 
-    @api.multi
+    #@api.multi
     def do_close(self):
         for item in self:
             item.is_closed=True
